@@ -7,555 +7,153 @@
     
     <!-- Meta Pixel Base Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1064744593204331'); 
-    fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1064744593204331'); fbq('track', 'PageView');
     </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=1064744593204331&ev=PageView&noscript=1"/>
-    </noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1064744593204331&ev=PageView&noscript=1"/></noscript>
 
-    <!-- Outfit & Montserrat Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-obsidian: #080a0f;
-            --card-obsidian: rgba(14, 18, 27, 0.85);
-            --card-border: rgba(241, 196, 15, 0.22);
+            --bg: #080a0f;
+            --card: rgba(14, 18, 27, 0.85);
+            --border: rgba(241, 196, 15, 0.22);
+            --gold: #f1c40f;
             --gold-light: #ffe082;
-            --gold-main: #f1c40f;
-            --gold-dark: #b78103;
-            --gold-metallic: linear-gradient(135deg, #ffe58f 0%, #f39c12 45%, #d35400 85%, #ffd700 100%);
-            --emerald-accent: #00e676;
-            --emerald-glow: rgba(0, 230, 118, 0.3);
-            --crimson-accent: #ff3366;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --text-gold: #f5d061;
+            --gold-grad: linear-gradient(135deg, #ffe58f 0%, #f39c12 45%, #d35400 85%, #ffd700 100%);
+            --green: #00e676;
+            --red: #ff3366;
+            --text-sec: #94a3b8;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
-            background-color: var(--bg-obsidian);
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.12) 0%, transparent 65%),
-                radial-gradient(circle at 80% 90%, rgba(0, 230, 118, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 10% 40%, rgba(15, 23, 42, 0.8) 0%, transparent 70%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 30px;
-            overflow-x: hidden;
+            background: var(--bg) radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.12) 0%, transparent 65%),
+                        radial-gradient(circle at 80% 90%, rgba(0, 230, 118, 0.08) 0%, transparent 50%);
+            color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 30px; overflow-x: hidden;
         }
 
         .ticker-bar {
-            width: 100%;
-            background: rgba(5, 7, 12, 0.95);
-            border-bottom: 1px solid var(--card-border);
-            padding: 8px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            width: 100%; background: rgba(5, 7, 12, 0.95); border-bottom: 1px solid var(--border);
+            padding: 8px 0; overflow: hidden; white-space: nowrap; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);
         }
-
-        .ticker-track {
-            display: inline-flex;
-            gap: 28px;
-            animation: ticker-scroll 22s linear infinite;
-        }
-
-        @keyframes ticker-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .ticker-item {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .ticker-up { color: var(--emerald-accent); }
+        .ticker-track { display: inline-flex; gap: 28px; animation: ticker 22s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .ticker-item { font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+        .ticker-up { color: var(--green); }
         .ticker-gold { color: var(--gold-light); }
 
-        .app-container {
-            width: 100%;
-            max-width: 430px;
-            padding: 20px 16px 0;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-section {
-            position: relative;
-            margin-bottom: 20px;
-        }
+        .app-container { width: 100%; max-width: 430px; padding: 20px 16px 0; text-align: center; }
 
         .profile-halo-ring {
-            position: relative;
-            width: 114px;
-            height: 114px;
-            margin: 0 auto 16px;
-            border-radius: 50%;
-            padding: 3.5px;
-            background: var(--gold-metallic);
-            box-shadow: 0 0 35px rgba(241, 196, 15, 0.4);
-            animation: golden-pulse 3s infinite ease-in-out;
+            position: relative; width: 114px; height: 114px; margin: 0 auto 16px; border-radius: 50%; padding: 3.5px;
+            background: var(--gold-grad); box-shadow: 0 0 35px rgba(241, 196, 15, 0.4); animation: pulse 3s infinite ease-in-out;
         }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 25px rgba(241,196,15,0.35); } 50% { box-shadow: 0 0 45px rgba(241,196,15,0.65); } }
 
-        @keyframes golden-pulse {
-            0%, 100% { box-shadow: 0 0 25px rgba(241, 196, 15, 0.35); }
-            50% { box-shadow: 0 0 45px rgba(241, 196, 15, 0.65); }
-        }
-
-        .profile-img-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--bg-obsidian);
-            overflow: hidden;
-            border: 2px solid var(--bg-obsidian);
-            position: relative;
-        }
-
-        .profile-img-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        .profile-img-inner { width: 100%; height: 100%; border-radius: 50%; background: var(--bg); overflow: hidden; border: 2px solid var(--bg); }
+        .profile-img-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .live-tag {
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #022013;
-            border: 1.5px solid var(--emerald-accent);
-            color: var(--emerald-accent);
-            font-size: 10px;
-            font-weight: 800;
-            padding: 2px 10px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            letter-spacing: 0.8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.8);
-            white-space: nowrap;
+            position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%); background: #022013;
+            border: 1.5px solid var(--green); color: var(--green); font-size: 10px; font-weight: 800; padding: 2px 10px;
+            border-radius: 20px; display: flex; align-items: center; gap: 5px; white-space: nowrap;
         }
-
-        .live-pulse-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--emerald-accent);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--emerald-accent);
-            animation: pulse-ring 1.5s infinite;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.9); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.4; }
-            100% { transform: scale(0.9); opacity: 1; }
-        }
+        .live-pulse-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: ring 1.5s infinite; }
+        @keyframes ring { 0%, 100% { transform: scale(0.9); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.4; } }
 
         .sebi-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(241, 196, 15, 0.08);
-            border: 1px solid rgba(241, 196, 15, 0.3);
-            color: var(--gold-light);
-            font-size: 11px;
-            font-weight: 800;
-            padding: 5px 14px;
-            border-radius: 30px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .sebi-icon {
-            width: 14px;
-            height: 14px;
-            fill: var(--gold-main);
+            display: inline-flex; align-items: center; gap: 6px; background: rgba(241, 196, 15, 0.08); border: 1px solid rgba(241, 196, 15, 0.3);
+            color: var(--gold-light); font-size: 11px; font-weight: 800; padding: 5px 14px; border-radius: 30px; margin-bottom: 10px;
         }
 
         .main-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 26px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            background: var(--gold-metallic);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(241, 196, 15, 0.2));
+            font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; background: var(--gold-grad);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 6px;
         }
-
-        .sub-title {
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
+        .sub-title { color: var(--text-sec); font-size: 13px; font-weight: 500; margin-bottom: 20px; }
 
         .glass-card {
-            background: var(--card-obsidian);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 18px 16px;
-            margin-bottom: 16px;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-            text-align: left;
+            background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 18px 16px; margin-bottom: 20px;
+            backdrop-filter: blur(16px); text-align: left; position: relative; overflow: hidden;
         }
+        .card-header-title { font-size: 12px; font-weight: 800; color: var(--gold-light); display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .live-tag-mini { background: rgba(0, 230, 118, 0.15); color: var(--green); border: 1px solid rgba(0, 230, 118, 0.3); font-size: 9px; padding: 2px 8px; border-radius: 10px; }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,224,130,0.4), transparent);
-        }
+        .chart-container { width: 100%; height: 120px; background: rgba(5, 8, 14, 0.8); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 12px; overflow: hidden; }
+        #candlestickCanvas { width: 100%; height: 100%; display: block; }
 
-        .card-header-title {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--gold-light);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .live-tag-mini {
-            background: rgba(0, 230, 118, 0.15);
-            color: var(--emerald-accent);
-            border: 1px solid rgba(0, 230, 118, 0.3);
-            font-size: 9px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 800;
-        }
-
-        /* Canvas Chart Styling */
-        .chart-container {
-            width: 100%;
-            height: 120px;
-            background: rgba(5, 8, 14, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        #candlestickCanvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .signal-alert-box {
-            background: linear-gradient(135deg, rgba(0, 230, 118, 0.12) 0%, rgba(5, 150, 105, 0.05) 100%);
-            border: 1px dashed rgba(0, 230, 118, 0.4);
-            border-radius: 12px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .signal-info {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .signal-info span {
-            color: var(--emerald-accent);
-            display: block;
-            font-size: 11px;
-            margin-top: 2px;
-            font-weight: 600;
-        }
-
-        .signal-badge {
-            background: var(--emerald-accent);
-            color: #000;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 6px 12px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px var(--emerald-glow);
-            white-space: nowrap;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .stat-card {
-            background: var(--card-obsidian);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 14px 12px;
-            text-align: center;
-            position: relative;
-            backdrop-filter: blur(12px);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--gold-main);
-        }
-
-        .stat-val {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            font-weight: 900;
-            background: var(--gold-metallic);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
-        }
-
-        .stat-lbl {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .urgency-banner {
-            background: linear-gradient(90deg, rgba(255, 51, 102, 0.15) 0%, rgba(241, 196, 15, 0.1) 100%);
-            border: 1px solid rgba(255, 51, 102, 0.35);
-            border-radius: 14px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-
-        .urgency-text {
-            font-size: 12px;
-            font-weight: 700;
-            color: #ffe0e6;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .timer-box {
-            font-family: 'Montserrat', sans-serif;
-            background: #180308;
-            border: 1px solid var(--crimson-accent);
-            color: var(--crimson-accent);
-            font-weight: 900;
-            font-size: 13px;
-            padding: 4px 10px;
-            border-radius: 8px;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
-        }
-
-        .cta-container {
-            margin-bottom: 12px;
-        }
+        .signal-alert-box { background: rgba(0, 230, 118, 0.08); border: 1px dashed rgba(0, 230, 118, 0.4); border-radius: 12px; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .signal-info { font-size: 12px; font-weight: 700; }
+        .signal-info span { color: var(--green); display: block; font-size: 11px; margin-top: 2px; }
+        .signal-badge { background: var(--green); color: #000; font-size: 11px; font-weight: 900; padding: 6px 12px; border-radius: 8px; }
 
         .cta-3d-btn {
-            position: relative;
-            width: 100%;
-            background: var(--gold-metallic);
-            color: #0b0f19;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 17px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 20px 16px;
-            border-radius: 18px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 
-                0 8px 25px rgba(241, 196, 15, 0.4),
-                0 4px 0 #8c5b00,
-                inset 0 1px 0 rgba(255,255,255,0.6);
-            transition: all 0.15s ease-in-out;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            position: relative; width: 100%; background: var(--gold-grad); color: #0b0f19; font-family: 'Montserrat', sans-serif;
+            font-size: 17px; font-weight: 900; padding: 20px 16px; border-radius: 18px; border: none; cursor: pointer;
+            box-shadow: 0 8px 25px rgba(241,196,15,0.4), 0 4px 0 #8c5b00; overflow: hidden; transition: 0.15s;
         }
-
-        /* Shimmer animation sweep */
         .cta-3d-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 50%;
-            height: 200%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.6),
-                transparent
-            );
-            transform: rotate(25deg);
-            animation: gold-shimmer 3.5s infinite;
+            content: ''; position: absolute; top: -50%; left: -60%; width: 50%; height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); transform: rotate(25deg); animation: shimmer 3.5s infinite;
         }
+        @keyframes shimmer { 0% { left: -60%; } 30%, 100% { left: 140%; } }
+        .cta-3d-btn:active { transform: translateY(3px); box-shadow: 0 3px 12px rgba(241,196,15,0.4); }
 
-        @keyframes gold-shimmer {
-            0% { left: -60%; }
-            30%, 100% { left: 140%; }
-        }
+        .sub-cta-info { font-size: 11px; color: var(--text-sec); font-weight: 600; margin: 12px 0 16px; }
 
-        .cta-3d-btn:active {
-            transform: translateY(3px);
-            box-shadow: 
-                0 3px 12px rgba(241, 196, 15, 0.4),
-                0 1px 0 #8c5b00;
-        }
+        .urgency-banner { background: linear-gradient(90deg, rgba(255,51,102,0.15), rgba(241,196,15,0.1)); border: 1px solid rgba(255, 51, 102, 0.35); border-radius: 14px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .urgency-text { font-size: 12px; font-weight: 700; color: #ffe0e6; }
+        .timer-box { font-family: 'Montserrat', sans-serif; background: #180308; border: 1px solid var(--red); color: var(--red); font-weight: 900; font-size: 13px; padding: 4px 10px; border-radius: 8px; }
 
-        .sub-cta-info {
-            font-size: 11px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 22px;
-        }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px 12px; text-align: center; backdrop-filter: blur(12px); }
+        .stat-val { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 900; background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-lbl { font-size: 11px; font-weight: 600; color: var(--text-sec); }
 
-        .quote-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--gold-main);
-            border-radius: 10px;
-            padding: 12px 14px;
-            text-align: left;
-            margin-bottom: 22px;
-        }
+        .quote-box { background: rgba(255,255,255,0.02); border-left: 3px solid var(--gold); border-radius: 10px; padding: 12px 14px; text-align: left; margin-bottom: 22px; }
+        .quote-content { font-size: 11.5px; color: #a0aec0; font-style: italic; }
+        .quote-author { font-style: normal; font-weight: 800; color: var(--gold-light); display: block; margin-top: 6px; font-size: 10.5px; }
 
-        .quote-content {
-            font-size: 11.5px;
-            color: #a0aec0;
-            font-style: italic;
-            line-height: 1.5;
-        }
-
-        .quote-author {
-            font-style: normal;
-            font-weight: 800;
-            color: var(--gold-light);
-            display: block;
-            margin-top: 6px;
-            font-size: 10.5px;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-managed {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 16px;
-            font-size: 11px;
-            color: #64748b;
-        }
-
-        .footer-managed a {
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .footer-managed a:hover {
-            text-decoration: underline;
-        }
+        .footer-managed { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; font-size: 11px; color: #64748b; }
+        .footer-managed a { color: #60a5fa; text-decoration: none; font-weight: 700; }
     </style>
 </head>
 <body>
 
     <div class="ticker-bar">
         <div class="ticker-track">
-            <div class="ticker-item">NIFTY 50 <span class="ticker-up">▲ 24,580.50 (+1.20%)</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">BANKNIFTY <span class="ticker-up">▲ 52,140.20 (+0.85%)</span></div>
-            <div class="ticker-item">•</div>
+            <div class="ticker-item">NIFTY 50 <span class="ticker-up">▲ 24,580.50 (+1.20%)</span></div> •
+            <div class="ticker-item">BANKNIFTY <span class="ticker-up">▲ 52,140.20 (+0.85%)</span></div> •
+            <div class="ticker-item">FINNIFTY <span class="ticker-up">▲ 23,410.00 (+1.40%)</span></div> •
+            <div class="ticker-item">ACCURACY <span class="ticker-gold">92.8% VERIFIED</span></div> •
+            <div class="ticker-item">LAST CALL <span class="ticker-up">24500 CE TARGET DONE 🎯 (+200 PTS)</span></div> •
+            <div class="ticker-item">NIFTY 50 <span class="ticker-up">▲ 24,580.50 (+1.20%)</span></div> •
+            <div class="ticker-item">BANKNIFTY <span class="ticker-up">▲ 52,140.20 (+0.85%)</span></div> •
             <div class="ticker-item">FINNIFTY <span class="ticker-up">▲ 23,410.00 (+1.40%)</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">ACCURACY <span class="ticker-gold">92.8% VERIFIED</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">LAST CALL <span class="ticker-up">24500 CE TARGET DONE 🎯 (+200 PTS)</span></div>
-            <div class="ticker-item">•</div>
-            <!-- Duplicate for infinite seamless scroll -->
-            <div class="ticker-item">NIFTY 50 <span class="ticker-up">▲ 24,580.50 (+1.20%)</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">BANKNIFTY <span class="ticker-up">▲ 52,140.20 (+0.85%)</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">FINNIFTY <span class="ticker-up">▲ 23,410.00 (+1.40%)</span></div>
-            <div class="ticker-item">•</div>
-            <div class="ticker-item">ACCURACY <span class="ticker-gold">92.8% VERIFIED</span></div>
         </div>
     </div>
 
     <div class="app-container">
-        
         <div class="profile-section">
             <div class="profile-halo-ring">
                 <div class="profile-img-inner">
                     <img src="profile.png" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%230f172a\'/><circle cx=\'50\' cy=\'38\' r=\'20\' fill=\'%23f1c40f\'/><path d=\'M 20 82 C 20 62 35 55 50 55 C 65 55 80 62 80 82 Z\' fill=\'%23f1c40f\'/></svg>';" alt="Trade With Purab™">
                 </div>
-                <div class="live-tag">
-                    <span class="live-pulse-dot"></span> LIVE ANALYSIS
-                </div>
+                <div class="live-tag"><span class="live-pulse-dot"></span> LIVE ANALYSIS</div>
             </div>
 
             <div class="sebi-badge">
-                <svg class="sebi-icon" viewBox="0 0 24 24">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                 VERIFIED SEBI REGISTERED
             </div>
 
@@ -568,242 +166,109 @@
                 <span>📊 LIVE MARKET BREAKOUT PULSE</span>
                 <span class="live-tag-mini">REALTIME</span>
             </div>
-
-            <div class="chart-container">
-                <canvas id="candlestickCanvas"></canvas>
-            </div>
-
+            <div class="chart-container"><canvas id="candlestickCanvas"></canvas></div>
             <div class="signal-alert-box">
-                <div class="signal-info">
-                    LAST CALL: NIFTY 24500 CE
-                    <span>@ 120 ➔ TARGET 320 (+200 PTS)</span>
-                </div>
-                <div class="signal-badge">
-                    TARGET DONE 🎯
-                </div>
+                <div class="signal-info">LAST CALL: NIFTY 24500 CE<span>@ 120 ➔ TARGET 320 (+200 PTS)</span></div>
+                <div class="signal-badge">TARGET DONE 🎯</div>
             </div>
         </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-val">92.8%</div>
-                <div class="stat-lbl">Accuracy Rate</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val">100-300+</div>
-                <div class="stat-lbl">Daily Target Pts</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val">48,000+</div>
-                <div class="stat-lbl">Active Traders</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card-inner">
-                    <div class="stat-val">3-4 Calls</div>
-                    <div class="stat-lbl">Daily Free Trades</div>
-                </div>
-            </div>
-        </div>
+        <!-- TELEGRAM BUTTON -->
+        <button id="telegramLink" class="cta-3d-btn" onclick="trackButtonClick()">🚀 JOIN FREE TELEGRAM NOW</button>
+        <div class="sub-cta-info">🔒 100% Free Access • Direct Telegram Redirection</div>
 
+        <!-- URGENCY BANNER (MOVED BELOW JOIN TELEGRAM) -->
         <div class="urgency-banner">
-            <div class="urgency-text">
-                ⚡ FREE DEMO CALL SPOTS:
-            </div>
-            <div class="timer-box" id="countdownTimer">
-                04m : 52s
-            </div>
+            <div class="urgency-text">⚡ FREE DEMO CALL SPOTS:</div>
+            <div class="timer-box" id="countdownTimer">04m : 52s</div>
         </div>
 
-        <div class="cta-container">
-            <button id="telegramLink" class="cta-3d-btn" onclick="trackButtonClick()">
-                🚀 JOIN FREE TELEGRAM NOW
-            </button>
-        </div>
-        <div class="sub-cta-info">
-            🔒 100% Free Access • Direct Telegram Redirection
+        <!-- STATS GRID -->
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-val">92.8%</div><div class="stat-lbl">Accuracy Rate</div></div>
+            <div class="stat-card"><div class="stat-val">100-300+</div><div class="stat-lbl">Daily Target Pts</div></div>
+            <div class="stat-card"><div class="stat-val">48,000+</div><div class="stat-lbl">Active Traders</div></div>
+            <div class="stat-card"><div class="stat-val">3-4 Calls</div><div class="stat-lbl">Daily Free Trades</div></div>
         </div>
 
         <div class="quote-box">
-            <p class="quote-content">
-                "Trade with discipline, follow our levels, and stay consistent in the market."
-                <span class="quote-author">— GROWX INTRADAY TRADING</span>
-            </p>
+            <p class="quote-content">"Trade with discipline, follow our levels, and stay consistent in the market."<span class="quote-author">— GROWX INTRADAY TRADING</span></p>
         </div>
 
-        <div class="footer-managed">
-            Managed by <a href="https://t.me/+mp524qElHEQ2YWU1" target="_blank">elite marketing</a>
-        </div>
-
+        <div class="footer-managed">Managed by <a href="https://t.me/+mp524qElHEQ2YWU1" target="_blank">elite marketing</a></div>
     </div>
 
     <script>
-        /* 1. Animated Candlestick Canvas Widget */
         function initChart() {
             var canvas = document.getElementById('candlestickCanvas');
             if (!canvas) return;
             var ctx = canvas.getContext('2d');
 
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
+            function resize() { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; }
+            resize(); window.addEventListener('resize', resize);
 
-            // Pre-generated candles data (bullish breakout pattern)
-            var candleCount = 14;
-            var candles = [];
-            var basePrice = 60;
-
-            for (var i = 0; i < candleCount; i++) {
-                var isGreen = i > 3 ? (Math.random() > 0.25) : (Math.random() > 0.5);
-                var change = (Math.random() * 12 + 4) * (isGreen ? 1 : -0.7);
-                var open = basePrice;
-                var close = open + change;
-                var high = Math.max(open, close) + Math.random() * 6;
-                var low = Math.min(open, close) - Math.random() * 6;
-                basePrice = close;
-
-                candles.push({ open: open, close: close, high: high, low: low, isGreen: isGreen });
+            var count = 14, candles = [], base = 60;
+            for (var i = 0; i < count; i++) {
+                var isG = i > 3 ? Math.random() > 0.25 : Math.random() > 0.5;
+                var open = base, close = open + (Math.random() * 12 + 4) * (isG ? 1 : -0.7);
+                candles.push({ open: open, close: close, high: Math.max(open, close) + Math.random() * 6, low: Math.min(open, close) - Math.random() * 6, isGreen: isG });
+                base = close;
             }
 
             var tick = 0;
-
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var w = canvas.width, h = canvas.height, cw = (w / count) - 6;
                 
-                var width = canvas.width;
-                var height = canvas.height;
-                var candleWidth = (width / candleCount) - 6;
-
-                // Animate last candle live
                 tick += 0.08;
-                var lastCandle = candles[candles.length - 1];
-                lastCandle.close = lastCandle.open + Math.sin(tick) * 8 + 10;
-                lastCandle.high = Math.max(lastCandle.open, lastCandle.close) + 4;
-                lastCandle.isGreen = lastCandle.close >= lastCandle.open;
+                var last = candles[candles.length - 1];
+                last.close = last.open + Math.sin(tick) * 8 + 10;
+                last.high = Math.max(last.open, last.close) + 4;
+                last.isGreen = last.close >= last.open;
 
-                // Find min & max price for scaling
-                var minP = Infinity, maxP = -Infinity;
-                candles.forEach(function(c) {
-                    if (c.low < minP) minP = c.low;
-                    if (c.high > maxP) maxP = c.high;
+                var minP = Math.min(...candles.map(c => c.low)), maxP = Math.max(...candles.map(c => c.high));
+                function getY(p) { return h - 15 - ((p - minP) / (maxP - minP || 1)) * (h - 30); }
+
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)'; ctx.lineWidth = 1;
+                for (var g = 1; g < 4; g++) { ctx.beginPath(); ctx.moveTo(0, (h / 4) * g); ctx.lineTo(w, (h / 4) * g); ctx.stroke(); }
+
+                candles.forEach((c, i) => {
+                    var x = i * (cw + 6) + 6, color = c.isGreen ? '#00e676' : '#ff3366';
+                    ctx.strokeStyle = ctx.fillStyle = color; ctx.lineWidth = 1.5;
+                    ctx.beginPath(); ctx.moveTo(x + cw / 2, getY(c.high)); ctx.lineTo(x + cw / 2, getY(c.low)); ctx.stroke();
+                    ctx.fillRect(x, Math.min(getY(c.open), getY(c.close)), cw, Math.max(Math.abs(getY(c.open) - getY(c.close)), 2));
                 });
 
-                function getY(price) {
-                    return height - 15 - ((price - minP) / (maxP - minP || 1)) * (height - 30);
-                }
-
-                // Render grid lines
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-                ctx.lineWidth = 1;
-                for (var g = 1; g < 4; g++) {
-                    ctx.beginPath();
-                    ctx.moveTo(0, (height / 4) * g);
-                    ctx.lineTo(width, (height / 4) * g);
-                    ctx.stroke();
-                }
-
-                // Draw Candlesticks
-                for (var i = 0; i < candles.length; i++) {
-                    var c = candles[i];
-                    var x = i * (candleWidth + 6) + 6;
-                    var yOpen = getY(c.open);
-                    var yClose = getY(c.close);
-                    var yHigh = getY(c.high);
-                    var yLow = getY(c.low);
-
-                    var color = c.isGreen ? '#00e676' : '#ff3366';
-
-                    // Draw Wick
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = 1.5;
-                    ctx.beginPath();
-                    ctx.moveTo(x + candleWidth / 2, yHigh);
-                    ctx.lineTo(x + candleWidth / 2, yLow);
-                    ctx.stroke();
-
-                    // Draw Body
-                    ctx.fillStyle = color;
-                    var bodyY = Math.min(yOpen, yClose);
-                    var bodyH = Math.max(Math.abs(yOpen - yClose), 2);
-                    ctx.fillRect(x, bodyY, candleWidth, bodyH);
-                }
-
-                // Draw live price line
-                var lastX = (candles.length - 1) * (candleWidth + 6) + 6 + candleWidth / 2;
-                var lastY = getY(lastCandle.close);
-
-                ctx.setLineDash([3, 3]);
-                ctx.strokeStyle = '#00e676';
-                ctx.beginPath();
-                ctx.moveTo(0, lastY);
-                ctx.lineTo(width, lastY);
-                ctx.stroke();
-                ctx.setLineDash([]);
+                var lastY = getY(last.close);
+                ctx.setLineDash([3, 3]); ctx.strokeStyle = '#00e676'; ctx.beginPath();
+                ctx.moveTo(0, lastY); ctx.lineTo(w, lastY); ctx.stroke(); ctx.setLineDash([]);
 
                 requestAnimationFrame(draw);
             }
-
             draw();
         }
 
-        /* 2. Countdown Timer */
         function startTimer() {
-            var duration = 4 * 60 + 52; // 04m 52s
-            var timerDisplay = document.getElementById('countdownTimer');
-
-            setInterval(function() {
-                var minutes = Math.floor(duration / 60);
-                var seconds = duration % 60;
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                if (timerDisplay) {
-                    timerDisplay.textContent = minutes + "m : " + seconds + "s";
-                }
-
-                if (--duration < 0) {
-                    duration = 5 * 60; // Reset loop gracefully
-                }
+            var dur = 292, timer = document.getElementById('countdownTimer');
+            setInterval(() => {
+                var m = String(Math.floor(dur / 60)).padStart(2, '0'), s = String(dur % 60).padStart(2, '0');
+                if (timer) timer.textContent = `${m}m : ${s}s`;
+                if (--dur < 0) dur = 300;
             }, 1000);
         }
 
-        /* 3. Button Click Tracking & Redirect Logic */
-        var isClicked = false;
-        var telegramUrl = "https://t.me/+X3ZNx-vFqxY2ZTFl";
-
+        var isClicked = false, telegramUrl = "https://t.me/+X3ZNx-vFqxY2ZTFl";
         function trackButtonClick() {
             if (!isClicked) {
                 isClicked = true;
-
-                // Fire Meta Pixel Events
-                if (typeof fbq !== 'undefined') {
-                    fbq('trackCustom', 'TelegramBtnClick');
-                    fbq('track', 'Subscribe');
-                }
-
-                // Visually Update Button
+                if (typeof fbq !== 'undefined') { fbq('trackCustom', 'TelegramBtnClick'); fbq('track', 'Subscribe'); }
                 var btn = document.getElementById('telegramLink');
-                if (btn) {
-                    btn.style.pointerEvents = 'none';
-                    btn.style.opacity = '0.85';
-                    btn.innerHTML = '⏳ CONNECTING TO TELEGRAM...';
-                }
-
-                // Redirect after 300ms
-                setTimeout(function() {
-                    window.location.href = telegramUrl;
-                }, 300);
+                if (btn) { btn.style.pointerEvents = 'none'; btn.style.opacity = '0.85'; btn.innerHTML = '⏳ CONNECTING TO TELEGRAM...'; }
+                setTimeout(() => window.location.href = telegramUrl, 300);
             }
         }
 
-        // Initialize scripts on load
-        window.onload = function() {
-            initChart();
-            startTimer();
-        };
+        window.onload = () => { initChart(); startTimer(); };
     </script>
 </body>
 </html>
